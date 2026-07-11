@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Modern Minimalist Palette - Light Background & Yellow Accents */
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+
+  --background: 45 25% 96%; /* Light warm background */
+  --foreground: 0 0% 20%; /* Dark text */
+
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 20%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 20%;
+
+  /* Primary Brand Color: Vibrant Yellow */
+  --primary: 45 91% 58%;
+  --primary-foreground: 0 0% 20%;
+
+  --secondary: 45 25% 96%;
+  --secondary-foreground: 0 0% 20%;
+
+  --muted: 45 15% 94%;
+  --muted-foreground: 0 0% 45%;
+
+  --accent: 45 91% 58%;
+  --accent-foreground: 0 0% 20%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 45 25% 96%;
+
+  /* Semantic Colors for Risk Levels */
+  --success: 142 71% 45%;
+  --warning: 38 92% 50%;
+  --danger: 0 84% 60%;
+
+  --border: 45 15% 88%;
+  --input: 45 15% 88%;
+  --ring: 45 91% 58%;
+
+  --radius: 1rem;
+}
+
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+
+  --primary: 217.2 91.2% 59.8%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 224.3 76.3% 48%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary;
+    font-family: var(--font-sans);
+    font-weight: 500;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-tight font-black;
+  }
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .glass-panel {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-amber-400;
+  }
+
+  .hero-text {
+    @apply text-4xl md:text-6xl lg:text-7xl font-black leading-none;
+  }
+  
+  .highlight-bg {
+    @apply bg-yellow-400 text-gray-900 px-6 py-2 rounded-xl;
+  }
+
+  .highlight-bg-sm {
+    @apply bg-yellow-400 text-gray-900 px-2 py-1 rounded-md;
+  }
+
+  .brand-text {
+    @apply text-3xl md:text-5xl lg:text-6xl font-black;
+    color: #1a202c; /* Dark blue */
+    letter-spacing: -0.01em;
+    line-height: 1;
+    font-weight: 900;
+  }
+
+  .assessment-text {
+    @apply text-2xl md:text-4xl lg:text-5xl font-black;
+    color: #166534; /* Dark green */
+    letter-spacing: -0.01em;
+    line-height: 1;
+    font-weight: 900;
+  }
+
+  .assessment-text::before {
+    content: none;
+  }
+
+  .btn-primary {
+    @apply bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] font-semibold rounded-full px-8 py-4 transition-all hover:scale-105 shadow-lg hover:shadow-xl;
+  }
+
+  .risk-low {
+    @apply text-[hsl(var(--success))];
+  }
+  .risk-medium {
+    @apply text-[hsl(var(--warning))];
+  }
+
+  .application-text {
+    @apply text-4xl md:text-6xl lg:text-7xl font-black;
+    color: #1e3a8a; /* Dark blue */
+    letter-spacing: -0.01em;
+    line-height: 1;
+    font-weight: 900;
+  }
+
+  .application-highlight {
+    @apply text-3xl md:text-5xl lg:text-6xl font-black;
+    color: #7c3aed; /* Purple */
+    letter-spacing: -0.01em;
+    line-height: 1;
+    font-weight: 900;
+  }
+
+  .loan-application-text {
+    @apply text-3xl md:text-5xl lg:text-6xl font-black;
+    color: #1e3a8a; /* Dark blue */
+    text-shadow: 
+      -3px -3px 0px #3b82f6,
+      3px 3px 0px #1d4ed8,
+      6px 6px 0px rgba(0,0,0,0.4);
+    transform: skew(-2deg) scale(1.02);
+    filter: contrast(1.1) brightness(1.05);
+    letter-spacing: -0.02em;
+    line-height: 0.9;
+  }
+
+  .loan-application-subtitle {
+    @apply text-2xl md:text-4xl lg:text-5xl font-black;
+    color: #166534; /* Dark green */
+    text-shadow: 
+      -2px -2px 0px #22c55e,
+      2px 2px 0px #14532d,
+      4px 4px 0px rgba(0,0,0,0.3);
+    transform: skew(-1deg) scale(1.01);
+    filter: contrast(1.05) brightness(1.02);
+    letter-spacing: -0.01em;
+    margin-top: 8px;
+    line-height: 0.9;
+  }
+
+  .history-text {
+    @apply text-3xl md:text-5xl lg:text-6xl font-black;
+    color: #581c87; /* Dark purple */
+    text-shadow: 
+      -2px -2px 0px #7c3aed,
+      2px 2px 0px #5b21b6,
+      4px 4px 0px rgba(0,0,0,0.3);
+    transform: scale(1.05);
+    filter: contrast(1.1);
+    margin-top: 20px;
+  }
+
+  .history-highlight {
+    @apply text-2xl md:text-4xl lg:text-5xl font-black;
+    color: #166534; /* Dark green */
+    text-shadow: 
+      -2px -2px 0px #22c55e,
+      2px 2px 0px #14532d,
+      4px 4px 0px rgba(0,0,0,0.3);
+    transform: scale(1.05);
+    filter: contrast(1.1);
+    margin-top: 10px;
+  }
+  .risk-high {
+    @apply text-[hsl(var(--danger))];
+  }
+  
+  .pdf-export-container,
+  .pdf-generating {
+    background: white !important;
+    color: black !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  .pdf-export-container *,
+  .pdf-generating * {
+    background: white !important;
+    color: black !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  .pdf-export-container .bg-white,
+  .pdf-generating .bg-white {
+    background: white !important;
+  }
+  
+  .pdf-export-container .border-\[hsl\(var\(--border\)\)\],
+  .pdf-generating .border-\[hsl\(var\(--border\)\]\] {
+    border-color: #e5e7eb !important;
+  }
+  
+  .pdf-export-container .text-\[hsl\(var\(--foreground\)\)\],
+  .pdf-generating .text-\[hsl\(var\(--foreground\)\)\] {
+    color: #111827 !important;
+  }
+  
+  .pdf-export-container .text-\[hsl\(var\(--muted-foreground\)\)\],
+  .pdf-generating .text-\[hsl\(var\(--muted-foreground\)\)\] {
+    color: #6b7280 !important;
+  }
+  
+  .pdf-export-container .bg-\[hsl\(var\(--primary\)\)\],
+  .pdf-generating .bg-\[hsl\(var\(--primary\)\)\] {
+    background: #facc15 !important;
+    color: #111827 !important;
+  }
+  
+  .pdf-export-container .bg-\[hsl\(var\(--muted\)\)\],
+  .pdf-generating .bg-\[hsl\(var\(--muted\)\)\] {
+    background: #f9fafb !important;
+  }
+  
+  .pdf-export-container .bg-\[hsl\(var\(--primary\)\]\/10\]\],
+  .pdf-generating .bg-\[hsl\(var\(--primary\)\]\/10\]\] {
+    background: #fef3c7 !important;
+  }
+  
+  .pdf-export-container .bg-\[hsl\(var\(--muted\)\]\/30\]\],
+  .pdf-generating .bg-\[hsl\(var\(--muted\)\]\/30\]\] {
+    background: #f3f4f6 !important;
+  }
+  
+  .pdf-export-container .bg-\[hsl\(var\(--muted\)\]\/50\]\],
+  .pdf-generating .bg-\[hsl\(var\(--muted\)\]\/50\]\] {
+    background: #e5e7eb !important;
+  }
+  
+  .bg-risk-low {
+    @apply bg-[hsl(var(--success))];
+  }
+  .bg-risk-medium {
+    @apply bg-[hsl(var(--warning))];
+  }
+  .bg-risk-high {
+    @apply bg-[hsl(var(--danger))];
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
